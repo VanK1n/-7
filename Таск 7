@@ -1,0 +1,74 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class test66 {
+
+    public static void main(String[] args) {
+        tests();
+        int[] inptArray = inputArray();
+        int result = solution(inptArray);
+        System.out.println("\nРљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ РјР°СЃСЃРёРІРµ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ СЃР»РѕР¶РµРЅРёРµРј Р»СЋР±С‹С… 2-С… РґСЂСѓРіРёС… СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°: " + result);
+    }
+
+    public static int solution(int[] array) {
+        int cnt = 0;
+        for (int k = 0; k < array.length; k++) {
+            boolean found = false;
+            for (int i = 0; i < array.length; i++) {
+                if (k != i) {
+                    for (int j = i + 1; j < array.length; j++) {
+                        if (k != j) {
+                            int sum = array[i] + array[j];
+                            if (sum == array[k]) {
+                                cnt++;
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (found) break;
+            }
+        }
+        return cnt;
+    }
+
+    public static int[] inputArray() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°, СЂР°Р·РґРµР»РµРЅРЅС‹Рµ РїСЂРѕР±РµР»Р°РјРё:");
+        String input = scanner.nextLine();
+        String[] inputStrings = input.trim().split("\\s+");
+        int[] array = new int[inputStrings.length];
+        for (int i = 0; i < inputStrings.length; i++) {
+            array[i] = Integer.parseInt(inputStrings[i]);
+        }
+        return array;
+    }
+
+    public static void printArray(int[] array) {
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void tests() {
+        int[][] testArrays = {
+                {1, 0, 2, 4, 3, 10, 8, 2, 3},
+                {5, 3, 2, 10, 7},
+                {1, 1, 1, 1},
+                {0, 0, 0, 0},
+                {1, 2, 3, 5, 8},
+                {1, 1, 2, 2, 3, 3},
+                {-1, 1, 0, 2, -2, 4},
+                {1000, -1000, 0, 2000, -2000},
+                {Integer.MAX_VALUE, Integer.MIN_VALUE, 0},
+                {1}
+        };
+
+        for (int i = 0; i < testArrays.length; i++) {
+            System.out.print("РўРµСЃС‚ " + (i + 1) + ": Р’С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ: ");
+            printArray(testArrays[i]);
+            int result = solution(testArrays[i]);
+            System.out.println("Р РµР·СѓР»СЊС‚Р°С‚: " + result);
+            System.out.println();
+        }
+    }
+}
