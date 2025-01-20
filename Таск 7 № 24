@@ -7,7 +7,7 @@ public class test66 {
         tests();
         int[] inptArray = inputArray();
         int result = solution(inptArray);
-        System.out.println("\nРљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ РјР°СЃСЃРёРІРµ, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ СЃР»РѕР¶РµРЅРёРµРј Р»СЋР±С‹С… 2-С… РґСЂСѓРіРёС… СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°: " + result);
+        System.out.println("\nКоличество элементов в массиве, которые можно получить сложением любых 2-х других элементов массива: " + result);
     }
 
     public static int solution(int[] array) {
@@ -35,7 +35,7 @@ public class test66 {
 
     public static int[] inputArray() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°, СЂР°Р·РґРµР»РµРЅРЅС‹Рµ РїСЂРѕР±РµР»Р°РјРё:");
+        System.out.println("Введите элементы массива, разделенные пробелами:");
         String input = scanner.nextLine();
         String[] inputStrings = input.trim().split("\\s+");
         int[] array = new int[inputStrings.length];
@@ -64,10 +64,10 @@ public class test66 {
         };
 
         for (int i = 0; i < testArrays.length; i++) {
-            System.out.print("РўРµСЃС‚ " + (i + 1) + ": Р’С…РѕРґРЅРѕР№ РјР°СЃСЃРёРІ: ");
+            System.out.print("Тест " + (i + 1) + ": Входной массив: ");
             printArray(testArrays[i]);
             int result = solution(testArrays[i]);
-            System.out.println("Р РµР·СѓР»СЊС‚Р°С‚: " + result);
+            System.out.println("Результат: " + result);
             System.out.println();
         }
     }
